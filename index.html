@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>楚韵古建巡游</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="game-title">
+        <div class="hero__copy">
+          <p class="eyebrow">武汉 · 宜昌 · 荆州 · 鄂州</p>
+          <h1 id="game-title">楚韵古建巡游</h1>
+          <p class="lead">
+            在长江沿线开启一场古建探访。选择城市、辨认建筑、回答线索题，集齐古建印章完成巡游。
+          </p>
+          <ol class="guide-steps" aria-label="玩法引导">
+            <li><span>1</span>先选一座城市，缩小本轮抽题范围</li>
+            <li><span>2</span>观察实景图和文字线索，判断正确答案</li>
+            <li><span>3</span>答对收集印章，连续答对获得额外分数</li>
+          </ol>
+          <div class="hero__actions">
+            <button class="primary-button" id="startButton" type="button">开始巡游</button>
+            <button class="ghost-button" id="resetButton" type="button">重新开始</button>
+          </div>
+        </div>
+        <div class="score-card" aria-live="polite">
+          <span>当前得分</span>
+          <strong id="scoreValue">0</strong>
+          <p id="statusText">准备出发，先选择一个城市。</p>
+        </div>
+      </section>
+
+      <section class="dashboard" aria-label="游戏信息">
+        <article class="panel progress-panel">
+          <div class="panel__heading">
+            <span>巡游进度</span>
+          <strong id="stampCount">0 / 0</strong>
+          </div>
+          <div class="stamp-grid" id="stampGrid" aria-label="已收集印章"></div>
+        </article>
+
+        <article class="panel city-panel">
+          <div class="panel__heading">
+            <span>选择城市</span>
+            <strong id="cityName">未选择</strong>
+          </div>
+          <p class="helper-text">不选城市也可以直接开始，系统会从全部古建中随机抽题。</p>
+          <div class="city-grid" id="cityGrid"></div>
+        </article>
+      </section>
+
+      <section class="game-board" aria-label="当前关卡">
+        <article class="landmark-card" id="landmarkCard">
+          <figure class="landmark-card__visual" id="landmarkVisual">
+            <img id="landmarkImage" alt="古建筑实景图" />
+            <figcaption id="photoCaption">实景图会在抽取古建后显示</figcaption>
+          </figure>
+          <div class="landmark-card__content">
+            <p class="eyebrow" id="cityLabel">等待启程</p>
+            <h2 id="landmarkName">请选择城市开始</h2>
+            <p id="landmarkIntro">每座古建都有一条专属线索。答对即可获得对应印章。</p>
+          </div>
+        </article>
+
+        <article class="quiz-card" aria-labelledby="questionText">
+          <div class="quiz-card__topline">
+            <span id="comboText">连击 0</span>
+            <span id="roundText">第 0 关</span>
+          </div>
+          <div class="guide-callout" id="guideCallout">
+            新手提示：先看左侧实景图，再读题干中的城市、建筑类型和文化关键词。
+          </div>
+          <h2 id="questionText">点击“开始巡游”抽取第一座古建。</h2>
+          <div class="options" id="optionsList"></div>
+          <p class="feedback" id="feedbackText" role="status"></p>
+          <button class="primary-button wide" id="nextButton" type="button" disabled>下一座古建</button>
+        </article>
+      </section>
+
+      <section class="collection panel" aria-label="古建名录">
+        <div class="panel__heading">
+          <span>可探索古建</span>
+          <strong id="landmarkTotal">0 处</strong>
+        </div>
+        <div class="landmark-list" id="landmarkList"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
